@@ -31,6 +31,26 @@ jobs:
         working-directory: ./front
         run: npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadless
 
+      - name: Test Reporting
+        uses: phoenix-actions/test-reporting@v12
+        id: test-reporting
+        if: success() || failure()
+        with:
+          name: 'BobApp Frontend'
+          check-name: 'BobApp Frontend'
+          working-directory: ./front
+          coverage-summary: ./coverage/lcov.info
+          fail-on-error: true
+          fail-on-warnings: true
+          files: |
+            ./coverage/lcov.info
+          paths: |
+            ./coverage/lcov.info
+          reporters: |
+            lcov
+            text
+            json
+
       - name: 'Upload coverage result with artifacts'
         uses: actions/upload-artifact@v3
         with:
