@@ -36,11 +36,10 @@ jobs:
         id: test-reporting
         if: success() || failure()
         with:
-          name: 'BobApp Frontend'
-          check-name: 'BobApp Frontend'
+          name: 'BobApp Frontend Tests'
           working-directory: ./front
           path: reports/jest-*.xml
-          reporter: test-coverage
+          reporter: jest-unit
 
 
       - name: 'Upload coverage result with artifacts'
