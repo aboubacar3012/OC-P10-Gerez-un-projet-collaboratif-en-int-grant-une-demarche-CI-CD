@@ -29,11 +29,10 @@ jobs:
 
       - name: 'Run tests with coverage'
         working-directory: ./front
-        run: npm run test -- --code-coverage
+        run: npm run test -- --code-coverage --no-watch
 
-#      - name: 'Upload coverage result with artifacts'
-#        working-directory: ./front
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: coverage
-#          path: coverage
+      - name: 'Upload coverage result with artifacts'
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: ./front/coverage
