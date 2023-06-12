@@ -39,7 +39,7 @@ jobs:
           name: 'BobApp Frontend Tests'
           working-directory: ./front
           path: reports/jest-*.xml
-          reporter: jest-unit
+          reporter: jest-junit
 
 
       - name: 'Upload coverage result with artifacts'
