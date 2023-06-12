@@ -17,7 +17,7 @@ jobs:
       - name: 'Change to frontend directory'
         run: cd front
       - run: ls -al
-      - run: cd frontend
+      - run: cd front
       - run: ls -al
 #      - name: 'Cache dependencies'
 #        uses: actions/cache@v3
