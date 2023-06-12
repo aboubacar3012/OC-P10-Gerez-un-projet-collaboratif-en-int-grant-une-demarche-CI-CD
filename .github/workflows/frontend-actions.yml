@@ -13,12 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-
+      - working-directory: front
       - name: 'Change to frontend directory'
-        run: cd front
-      - run: ls -al
-      - run: cd front
-      - run: ls -al
+        run: ls -al
 #      - name: 'Cache dependencies'
 #        uses: actions/cache@v3
 #        with:
