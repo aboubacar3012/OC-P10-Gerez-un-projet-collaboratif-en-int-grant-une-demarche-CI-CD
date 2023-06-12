@@ -15,9 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
 
 
-      - run: cd front
-
       - name: 'Cache dependencies'
+        working-directory: ./front
         uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -26,12 +25,15 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: 'Install dependencies'
+        working-directory: ./front
         run: npm install
 
       - name: 'Run tests with coverage'
+        working-directory: ./front
         run: npm run test -- --code-coverage
 
       - name: 'Upload coverage result with artifacts'
+        working-directory: ./front
         uses: actions/upload-artifact@v3
         with:
           name: coverage
