@@ -39,7 +39,7 @@ jobs:
           name: 'BobApp Frontend'
           check-name: 'BobApp Frontend'
           working-directory: ./front
-          paths: reports/jest-*.xml
+          path: reports/jest-*.xml
           reporter: test-coverage
 
 
