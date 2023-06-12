@@ -39,17 +39,9 @@ jobs:
           name: 'BobApp Frontend'
           check-name: 'BobApp Frontend'
           working-directory: ./front
-          coverage-summary: ./coverage/lcov.info
-          fail-on-error: true
-          fail-on-warnings: true
-          files: |
-            ./coverage/lcov.info
-          paths: |
-            ./coverage/lcov.info
-          reporters: |
-            lcov
-            text
-            json
+          paths: reports/jest-*.xml
+          reporter: test-coverage
+
 
       - name: 'Upload coverage result with artifacts'
         uses: actions/upload-artifact@v3
