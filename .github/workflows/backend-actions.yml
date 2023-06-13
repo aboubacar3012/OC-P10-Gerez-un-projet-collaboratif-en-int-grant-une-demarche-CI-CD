@@ -45,6 +45,7 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco/index.html
+        if: ${{ steps.jacoco-report.outcome }} == 'success'
 
 #      - name: Test Report
 #        uses: phoenix-actions/test-reporting@v8
