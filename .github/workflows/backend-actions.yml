@@ -20,7 +20,9 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           cache: 'maven'
-      - run: mvn -B package --file pom.xml
+      - name: Build with Maven
+        working-directory: ./backend
+        run: mvn -B package --file pom.xml
 
       - name: Test
         working-directory: ./backend
