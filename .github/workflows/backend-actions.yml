@@ -21,9 +21,9 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Build with Maven
-        working-directory: ./backend
+        working-directory: ./back
         run: mvn -B package --file pom.xml
 
       - name: Test
-        working-directory: ./backend
+        working-directory: ./back
         run: mvn clean package
