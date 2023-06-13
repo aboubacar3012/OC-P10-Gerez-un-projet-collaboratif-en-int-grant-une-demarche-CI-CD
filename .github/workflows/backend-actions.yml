@@ -49,13 +49,14 @@ jobs:
         run: mvn jacoco:report
 
       - name: 'Upload Jacoco coverage report'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jacoco-report
           path: ./back/target/site/jacoco/index.html
         if: ${{ steps.jacoco-report.outcome }} == 'success'
 
       - name: Build and analyze
+        working-directory: ./back
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
