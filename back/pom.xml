@@ -64,16 +64,4 @@
             </plugin>
         </plugins>
     </build>
-    <!-- Ajouter la section de configuration SonarQube -->
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <sonar.host.url>http://localhost:9000</sonar.host.url>
-            </properties>
-        </profile>
-    </profiles>
 </project>
