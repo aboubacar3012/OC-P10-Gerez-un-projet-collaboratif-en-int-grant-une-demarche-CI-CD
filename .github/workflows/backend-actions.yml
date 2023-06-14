@@ -14,12 +14,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: "Setup JDK 17"
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           cache: 'maven'
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
@@ -46,6 +54,14 @@ jobs:
           name: jacoco-report
           path: ./back/target/site/jacoco/index.html
         if: ${{ steps.jacoco-report.outcome }} == 'success'
+
+      - name: Build and analyze
+        working-directory: ./back
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
 #      - name: Test Report
 #        uses: phoenix-actions/test-reporting@v8
