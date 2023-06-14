@@ -55,13 +55,13 @@ jobs:
           path: ./back/target/site/jacoco/index.html
         if: ${{ steps.jacoco-report.outcome }} == 'success'
 
-      - name: Build and analyzes
-        working-directory: ./back
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+#      - name: Build and analyzes
+#        working-directory: ./back
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
 #      - name: Test Report
 #        uses: phoenix-actions/test-reporting@v8
