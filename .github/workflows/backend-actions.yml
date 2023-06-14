@@ -55,7 +55,7 @@ jobs:
           path: ./back/target/site/jacoco/index.html
         if: ${{ steps.jacoco-report.outcome }} == 'success'
 
-      - name: Build and analyze
+      - name: Build and analyzes
         working-directory: ./back
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
