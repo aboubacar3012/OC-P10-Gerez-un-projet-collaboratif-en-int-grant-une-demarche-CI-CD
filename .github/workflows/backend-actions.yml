@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Cache SonarQube packages
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
@@ -62,6 +62,7 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+
 
 #      - name: Test Report
 #        uses: phoenix-actions/test-reporting@v8
