@@ -20,7 +20,6 @@ jobs:
           distribution: 'zulu' # Alternative distribution options are available.
 
       - name: Cache SonarCloud packages
-        working-directory: ./back
         uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
@@ -28,7 +27,6 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Cache Maven packages
-        working-directory: ./back
         uses: actions/cache@v3
         with:
           path: ~/.m2
