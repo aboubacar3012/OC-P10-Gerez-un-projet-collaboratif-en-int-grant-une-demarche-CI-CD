@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 jobs:
   build:
     name: Build and analyze
@@ -34,28 +34,17 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Install SonarScanner
-        run: |
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
-          unzip sonar-scanner-cli-4.6.2.2472-linux.zip
-          mv sonar-scanner-4.6.2.2472-linux $HOME/sonar-scanner
-
-      - name: Build and analyze backend
+      - name: Build and analyze
         working-directory: ./back
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          PATH: $HOME/sonar-scanner/bin:$PATH
-        run: mvn clean verify
-#        run: ./mvnw sonar:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
 
-#      - name: Build and analyze frontend
-#        working-directory: ./front
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          PATH: $HOME/sonar-scanner/bin:$PATH
-#        run: sonar-scanner -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-
-#          cd ../front
-#          sonar-scanner -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+        #      - name: Build and analyze frontend
+        #        working-directory: ./front
+        #        env:
+        #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        #          PATH: $HOME/sonar-scanner/bin:$PATH
+        #        run: sonar-scanner -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
