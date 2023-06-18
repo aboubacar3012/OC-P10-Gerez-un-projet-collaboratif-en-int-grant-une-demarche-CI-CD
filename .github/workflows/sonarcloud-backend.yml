@@ -1,10 +1,16 @@
 name: SonarCloud | Backend BobApp
-run-name: ${{ github.actor }} | SonarCloud Backend
+run-name: ${{ github.actor }} | SonarCloud Backend BobApp
 on:
   push:
     branches:
       - main
+    paths:
+      - 'back/**'
   pull_request:
+    branches:
+      - main
+    paths:
+      - 'back/**'
     types: [ opened, synchronize, reopened ]
 jobs:
   build:
