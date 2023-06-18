@@ -35,8 +35,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build and analyze backend
-        working-directory: ./back
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+        run: cd ./back && mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+        run: cd ../front && sonar-scanner -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
