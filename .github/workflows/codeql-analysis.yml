@@ -3,7 +3,7 @@
 #
 # You may wish to alter this file to override the set of languages analyzed,
 # or to provide custom queries or build logic.
-name: "Code scanning"
+name: Code scanning | BobApp Project
 run-name: ${{ github.actor }} | Code Analysis
 
 on:

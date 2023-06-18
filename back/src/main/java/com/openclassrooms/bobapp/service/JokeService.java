@@ -4,8 +4,9 @@ import com.openclassrooms.bobapp.data.JsonReader;
 import com.openclassrooms.bobapp.model.Joke;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 @Service
 public class JokeService {
@@ -19,7 +20,8 @@ public class JokeService {
 
     public Joke getRandomJoke() {
         List<Joke> jokes = this.jsonReader.getJokes();
-        int randomIndex = ThreadLocalRandom.current().nextInt(jokes.size());
+        SecureRandom random = new SecureRandom();
+        int randomIndex = random.nextInt(jokes.size());
         return jokes.get(randomIndex);
     }
 
