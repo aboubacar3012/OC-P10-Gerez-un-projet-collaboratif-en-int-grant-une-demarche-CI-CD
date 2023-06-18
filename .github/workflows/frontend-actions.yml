@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'front/**'
+#    paths:
+  #      - 'front/**'
   pull_request:
     branches:
       - main
-    paths:
-      - 'front/**'
+#    paths:
+#      - 'front/**'
 jobs:
   test:
     runs-on: ubuntu-latest

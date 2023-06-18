@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'back/**'
+#    paths:
+#      - 'back/**'
   pull_request:
     branches:
       - main
-    paths:
-      - 'back/**'
+#    paths:
+#      - 'back/**'
 jobs:
   build:
     name: Build, Test and Package
