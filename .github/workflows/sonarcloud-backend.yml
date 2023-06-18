@@ -1,5 +1,5 @@
 name: SonarCloud | Backend BobApp
-run-name: ${{ github.actor }} | SornaCloud Backend
+run-name: ${{ github.actor }} | SonarCloud Backend
 on:
   push:
     branches:
@@ -40,13 +40,6 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-
-#      - name: Build project
-#        working-directory: ./back
-#        run: |
-#          ./mvnw clean package -DskipTests
-#          mkdir build
-#          cp target/*.jar build/
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
