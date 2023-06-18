@@ -47,7 +47,7 @@ jobs:
           PATH: $HOME/sonar-scanner/bin:$PATH
         run: |
           cd ./back
-          ./mvnw sonar:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+          mvn clean verify sonar:sonar -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
           
           cd ../front
           sonar-scanner -Dsonar.projectKey=aboubacar3012_OC-P10-Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
