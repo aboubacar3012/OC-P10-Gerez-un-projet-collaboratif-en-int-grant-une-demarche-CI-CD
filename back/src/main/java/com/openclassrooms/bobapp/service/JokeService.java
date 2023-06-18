@@ -17,10 +17,17 @@ public class JokeService {
         this.jsonReader = jsonReader;
     }
 
+//    public Joke getRandomJoke() {
+//        List<Joke> jokes = this.jsonReader.getJokes();
+//        Random generator = new Random();
+//        int randomIndex = generator.nextInt(jokes.size());
+//        return jokes.get(randomIndex);
+//    }
+
     public Joke getRandomJoke() {
         List<Joke> jokes = this.jsonReader.getJokes();
-        Random generator = new Random();
-        int randomIndex = generator.nextInt(jokes.size());
+        int randomIndex = (int) (Math.random() * jokes.size());
         return jokes.get(randomIndex);
     }
+
 }
