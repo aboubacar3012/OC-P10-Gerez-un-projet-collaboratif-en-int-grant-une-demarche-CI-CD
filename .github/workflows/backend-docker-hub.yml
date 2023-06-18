@@ -28,7 +28,7 @@ jobs:
       - name: Build and push in docker hub
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./back/Dockerfile
+          context: ./back
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
