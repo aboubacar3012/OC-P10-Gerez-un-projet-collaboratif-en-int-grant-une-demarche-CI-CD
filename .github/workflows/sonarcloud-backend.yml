@@ -1,4 +1,5 @@
 name: SonarCloud
+run-name: ${{ github.actor }} | SornaCloud Backend
 on:
   push:
     branches:
