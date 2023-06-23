@@ -43,6 +43,7 @@ notre projet :
 - **Temps total d'exécution de la pipeline** : Le temps total d'exécution de notre pipeline est de 5 minutes, ce qui est
   en dessous de notre objectif de réduire les délais de déploiement.
 
+
 ## Notes et avis
 
 Nous avons reçu des retours positifs des utilisateurs concernant la stabilité et les fonctionnalités de notre

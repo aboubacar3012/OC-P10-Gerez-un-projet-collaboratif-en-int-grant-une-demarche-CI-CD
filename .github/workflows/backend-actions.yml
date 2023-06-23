@@ -26,12 +26,6 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           cache: 'maven'
-#      - name: Cache SonarQube packages
-#        uses: actions/cache@v3
-#        with:
-#          path: ~/.sonar/cache
-#          key: ${{ runner.os }}-sonar
-#          restore-keys: ${{ runner.os }}-sonar
 
       - name: Cache local Maven repository
         uses: actions/cache@v3
