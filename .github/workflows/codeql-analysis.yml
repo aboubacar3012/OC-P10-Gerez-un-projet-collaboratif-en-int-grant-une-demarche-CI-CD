@@ -10,16 +10,16 @@ on:
   push:
     branches:
       - main
-#    paths:
-#      - 'back/**'
-#      - 'front/**'
+    paths:
+      - 'back/**'
+      - 'front/**'
 
   pull_request:
     branches:
       - main
-#    paths:
-#      - 'back/**'
-#      - 'front/**'
+    paths:
+      - 'back/**'
+      - 'front/**'
 
 jobs:
   analyze:
