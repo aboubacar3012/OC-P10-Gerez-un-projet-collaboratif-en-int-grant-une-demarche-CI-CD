@@ -35,18 +35,6 @@ jobs:
         working-directory: ./front
         run: npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadless
 
-      # Karma is not supported
-      #      - name: Test Reporting
-      #        uses: phoenix-actions/test-reporting@v12
-      #        id: test-reporting
-      #        if: success() || failure()
-      #        with:
-      #          name: 'BobApp Frontend Tests'
-      #          working-directory: ./front
-      #          path: reports/jest-*.xml
-      #          reporter: jest-junit
-
-
       - name: 'Upload coverage result with artifacts'
         uses: actions/upload-artifact@v3
         with:

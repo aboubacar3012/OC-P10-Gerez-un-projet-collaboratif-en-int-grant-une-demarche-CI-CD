@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: jacoco-report
-          path: ./back/target/site/jacoco/index.html
+          path: ./back/target/site/jacoco
         if: ${{ steps.jacoco-report.outcome }} == 'success'
 
 #      - name: Build and analyzes
